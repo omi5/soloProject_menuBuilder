@@ -1,0 +1,30 @@
+<nz-layout>
+    <!-- //Header -->
+    <app-dashboard-header></app-dashboard-header>
+    <!-- //Header -->
+    <nz-layout>
+    <!-- //SideBar -->
+    <nz-sider nzWidth="300px" nzTheme="light">
+      <app-dashboard-sidebar></app-dashboard-sidebar>
+    </nz-sider>
+    <!-- //SideBar -->
+
+      <nz-layout class="mt-14 ml-20">
+        <div class="grid place-content-end pr-36">
+            <button nz-button class="bg-green-600 text-white text-center rounded-md px-2 py-1 w-32 h-10 text-xl"   [nzType]="'primary'">Add Item</button>
+        </div>
+        <nz-content class="mt-14">
+            <div class="grid grid-cols-4 gap-4 ">
+                <app-menu></app-menu>
+                <app-menu></app-menu>
+                <app-menu></app-menu>
+                <app-menu></app-menu>
+                <app-menu></app-menu>
+                <app-menu></app-menu>
+                <app-menu></app-menu>
+            </div>    
+
+        </nz-content>
+      </nz-layout>
+    </nz-layout>
+  </nz-layout>
