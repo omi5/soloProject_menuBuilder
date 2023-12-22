@@ -19,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { HomepageComponent } from './homepage/homepage.component';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+// import { NzOptionModule } from 'ng-zorro-antd/core/option';
+
+
 
 
 //for HomePage
@@ -31,6 +35,8 @@ import { BreakfastComponent } from './breakfast/breakfast.component';
 import { LunchComponent } from './lunch/lunch.component';
 import { DinnerComponent } from './dinner/dinner.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+
 
 
 
@@ -60,7 +66,12 @@ registerLocaleData(en);
     ReactiveFormsModule,
     NzButtonModule,
     NzLayoutModule,
-    NzBreadCrumbModule
+    NzBreadCrumbModule,
+    NzUploadModule,
+    NzSelectModule,
+    // NzOptionModule
+   
+
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

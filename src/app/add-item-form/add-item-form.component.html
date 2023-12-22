@@ -1,1 +1,173 @@
-<p>add-item-form works!</p>
+<div class="min-h-screen bg-gray-100 py-6 flex  mx-auto justify-center sm:py-12 border-2 border-yellow-600">
+    <!-- <div class="w-full py-3 sm:max-w-xl sm:mx-auto "> -->
+        <!-- <div
+            class="absolute inset-0 bg-gradient-to-r from-blue-300 to-green-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+        </div> -->
+        <div class="relative w-5/12 px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">  
+            <div class="mx-auto">
+                
+                <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                    <!-- // Upload a Image -->
+
+                    <nz-upload
+                    class="w-10/12"
+                    nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                    nzName="avatar"
+                    nzListType="picture-card"
+                    [nzShowUploadList]="false"
+                    [nzBeforeUpload]="beforeUpload"
+                    (nzChange)="handleChange($event)"
+                  >
+                    <ng-container *ngIf="!avatarUrl">
+                      <span class="upload-icon" nz-icon ></span>
+                      <div class="ant-upload-text">Upload</div>
+                    </ng-container>
+                    <img *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
+                  </nz-upload>
+
+
+
+
+                    <!-- // Upload a Image -->
+                    
+                    
+                    
+                    <div class="flex">
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your username!">
+                              <nz-form-label for="name" nzRequired>Name</nz-form-label>    
+                            <nz-input-group nzPrefixIcon="" class="w-96 py-2">
+                              <input formControlName="userName" nz-input placeholder="name" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-form-label for="name">PLU</nz-form-label> 
+                            <nz-input-group nzPrefixIcon="" class="w-96 py-2">
+                              <input formControlName="password" nz-input  placeholder="PLU" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                    </div>
+                    <div class=" relative w-9/12">
+                        <nz-form-item >
+                            <nz-form-control  nzHasFeedback nzErrorTip="Please write something here!">
+                                <nz-form-label  nzRequired>Description</nz-form-label>
+                              <nz-textarea-count [nzMaxCharacterCount]="2000">
+                                <textarea formControlName="comment" nz-input rows="2" placeholder="write any thing" class="w-full text-xl"></textarea>
+                              </nz-textarea-count>
+                            </nz-form-control>
+                          </nz-form-item>
+                    </div>
+
+                    <div class="flex">
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your username!">
+                              <nz-form-label for="name" nzRequired>Price</nz-form-label>    
+                            <nz-input-group nzPrefixIcon="" class="w-64 py-2">
+                              <input formControlName="userName" nz-input placeholder="Price" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-form-label for="name" nzRequired>Portion size</nz-form-label> 
+                            <nz-input-group nzPrefixIcon="" class="w-62 py-2">
+                              <input formControlName="password" nz-input  placeholder="Portion Time" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your Password!">
+                              <nz-form-label for="name" nzRequired>Preparation Time</nz-form-label> 
+                              <nz-input-group nzPrefixIcon="" class="w-60 py-2">
+                                <input formControlName="password" nz-input  placeholder="Preparation Time" class="p-2 text-xl" />
+                              </nz-input-group>
+                            </nz-form-control>
+                          </nz-form-item>
+                    </div>
+                    <div class="flex">
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your username!">
+                              <nz-form-label for="name" nzRequired>Serving Time</nz-form-label>    
+                            <nz-input-group nzPrefixIcon="" class="w-64 py-2">
+                              <input formControlName="userName" nz-input placeholder="Serving Time" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-form-label for="name" nzRequired>Lasting Time</nz-form-label> 
+                            <nz-input-group nzPrefixIcon="" class="w-62 py-2">
+                              <input formControlName="password" nz-input  placeholder="Lasting Time" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                      
+                        <!-- <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your Delivered Type!">
+                              <nz-form-label for="name">How TO Delivered</nz-form-label> 
+                              <nz-input-group nzPrefixIcon="" class="w-60 py-2" nzCompact>
+                                <nz-select [ngModel]="'Option1-1'">
+                                    <nz-option [nzLabel]="'Option1-1'" [nzValue]="'Option1-1'"></nz-option>
+                                    <nz-option [nzLabel]="'Option1-2'" [nzValue]="'Option1-2'"></nz-option>
+                                  </nz-select>
+                              </nz-input-group>
+                            </nz-form-control>
+                          </nz-form-item> -->
+
+                         <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-form-label for="name" nzRequired>How To Delivered</nz-form-label>
+                            <nz-select ngModel="lucy" class="w-60 h-12 mt-4">
+                                <nz-option nzValue="Box" nzLabel="Box"></nz-option>
+                                <nz-option nzValue="Paper" nzLabel="Paper"></nz-option>
+                                <nz-option nzValue="Cutbot" nzLabel="Cutbot"></nz-option>
+                              </nz-select>
+                            </nz-form-control>    
+                         </nz-form-item>
+                    </div>
+                    
+
+                    <div>
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your username!">
+                              <nz-form-label for="name" nzRequired>Calories</nz-form-label>    
+                            <nz-input-group nzPrefixIcon="" class="w-64 py-2">
+                              <input formControlName="userName" nz-input placeholder="Calories" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                    </div>  
+                    
+                    <div class=" relative w-9/12">
+                        <nz-form-label for="name" nzRequired>Tags And Allergens</nz-form-label>    
+
+                        <nz-select
+                        class="w-full text-xl "
+                        [nzMaxTagCount]="5"
+                        [nzMaxTagPlaceholder]="tagPlaceHolder"
+                        nzMode="multiple"
+                        nzPlaceHolder="Please select tags and allergens"
+                        [(ngModel)]="listOfSelectedValue"
+                      >
+                        <nz-option *ngFor="let item of listOfOption" [nzLabel]="item" [nzValue]="item" ></nz-option>
+                      </nz-select>
+                      <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+                    </div>
+
+
+
+
+
+                    <nz-form-item>
+                      <!-- <nz-form-control>
+                        <button nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
+                      </nz-form-control> -->
+                    </nz-form-item>
+                  </form>
+          </div>      
+        <!-- </div>  -->
+    </div>
+</div> 
