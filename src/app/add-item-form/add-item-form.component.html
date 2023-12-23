@@ -1,14 +1,16 @@
-<div class="min-h-screen bg-gray-100 py-6 flex  mx-auto justify-center sm:py-12 border-2 border-yellow-600">
+ 
+ 
+ <div class="min-h-screen bg-gray-100 py-6 flex  mx-auto justify-center sm:py-12 border-2 border-yellow-600">
     <!-- <div class="w-full py-3 sm:max-w-xl sm:mx-auto "> -->
         <!-- <div
             class="absolute inset-0 bg-gradient-to-r from-blue-300 to-green-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
         </div> -->
-        <div class="relative w-5/12 px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">  
+        <div class="relative w-9/12 px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">  
             <div class="mx-auto">
                 
                 <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
                     <!-- // Upload a Image -->
-
+                  <div>
                     <nz-upload
                     class="w-10/12"
                     nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -166,6 +168,67 @@
                         <button nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
                       </nz-form-control> -->
                     </nz-form-item>
+
+                  </div>
+                  
+                  <!-- add Item part In the above -->
+                  <!-- for border Line -->
+                  
+                  <div class="border-l-2 border-gray-500"></div>
+                  <!-- for border Line -->
+                  <div>
+                    <!-- for adding ingredients  -->
+                   <div>
+                    <nz-form-item *ngFor="let control of listOfControl; let i = index">
+                      <nz-form-label [nzXs]="24" [nzSm]="4" *ngIf="i === 0" [nzFor]="control.controlInstance">
+                        Passengers
+                      </nz-form-label>
+                      <nz-form-control
+                        [nzXs]="24"
+                        [nzSm]="20"
+                        [nzOffset]="i === 0 ? 0 : 4"
+                        nzErrorTip="Please input passenger's name or delete this field."
+                      >
+                      <div>
+                        <input
+                          class="passenger-input w-full ml-10"
+                          nz-input
+                          placeholder="placeholder"
+                          [attr.id]="control.id"
+                          [formControlName]="control.controlInstance"
+                        />
+                        <span nz-icon nzType="minus-circle" nzTheme="outline"
+                          (click)="removeField(control, $event)"
+
+                        >delete</span>
+                      </div>
+                        <!-- <span
+                          nz-icon
+                          nzType="minus-circle"
+                          class="dynamic-delete-button w-2/12 border-2 border-red-700"
+                          (click)="removeField(control, $event)"
+                        ></span> -->
+                      </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                      <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+                        <button nz-button nzType="dashed" class="add-button" (click)="addField($event)">
+                          <span nz-icon nzType="plus"></span>
+                          Add field
+                        </button>
+                      </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                      <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+                        <button nz-button nzType="primary">Submit</button>
+                      </nz-form-control>
+                    </nz-form-item>
+
+                   </div>
+                    <!-- for adding ingredients  -->
+
+                  </div>
+                  
                   </form>
           </div>      
         <!-- </div>  -->

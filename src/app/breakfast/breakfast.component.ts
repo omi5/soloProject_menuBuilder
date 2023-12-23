@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-breakfast',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class BreakfastComponent {
 
+  
+  constructor(private router: Router) {}
+
+  onAddItem(){
+    this.router.navigate(['/additem'])
+  }
 }
