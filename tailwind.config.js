@@ -15,6 +15,9 @@ module.exports = {
       letterSpacing: {
         widest: '.45em'
 
+      },
+      backgroundImage: {
+        'hero-pattern': "url('./assets/images/breakfast.PNG')",
       }
     },
   },

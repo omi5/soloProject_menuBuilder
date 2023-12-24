@@ -1,6 +1,6 @@
  
  
- <div class="min-h-screen bg-gray-100 py-6 flex  mx-auto justify-center sm:py-12 border-2 border-yellow-600">
+ <div class="min-h-screen bg-gray-100 py-6 flex  mx-auto justify-center sm:py-12 ">
     <!-- <div class="w-full py-3 sm:max-w-xl sm:mx-auto "> -->
         <!-- <div
             class="absolute inset-0 bg-gradient-to-r from-blue-300 to-green-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
@@ -10,9 +10,10 @@
                 
                 <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
                     <!-- // Upload a Image -->
+                    
                   <div>
                     <nz-upload
-                    class="w-10/12"
+                    class=""
                     nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                     nzName="avatar"
                     nzListType="picture-card"
@@ -22,7 +23,7 @@
                   >
                     <ng-container *ngIf="!avatarUrl">
                       <span class="upload-icon" nz-icon ></span>
-                      <div class="ant-upload-text">Upload</div>
+                      <div class="ant-upload-text w-96">Upload</div>
                     </ng-container>
                     <img *ngIf="avatarUrl" [src]="avatarUrl" style="width: 100%" />
                   </nz-upload>
@@ -174,14 +175,15 @@
                   <!-- add Item part In the above -->
                   <!-- for border Line -->
                   
-                  <div class="border-l-2 border-gray-500"></div>
+                  <div class="border-l-2 border-gray-500 "></div>
                   <!-- for border Line -->
-                  <div>
+                  <div class="ml-8">
                     <!-- for adding ingredients  -->
                    <div>
+                    <h2 class="w-60 mb-10 text-2xl font-bold">Add Ingredients</h2>
                     <nz-form-item *ngFor="let control of listOfControl; let i = index">
                       <nz-form-label [nzXs]="24" [nzSm]="4" *ngIf="i === 0" [nzFor]="control.controlInstance">
-                        Passengers
+                        Ingredients
                       </nz-form-label>
                       <nz-form-control
                         [nzXs]="24"
@@ -191,16 +193,16 @@
                       >
                       <div>
                         <input
-                          class="passenger-input w-full ml-10"
+                          class="passenger-input w-full "
                           nz-input
                           placeholder="placeholder"
                           [attr.id]="control.id"
                           [formControlName]="control.controlInstance"
                         />
-                        <span nz-icon nzType="minus-circle" nzTheme="outline"
+                        <!-- <span nz-icon nzType="minus-circle" nzTheme="outline"
                           (click)="removeField(control, $event)"
 
-                        >delete</span>
+                        >delete</span> -->
                       </div>
                         <!-- <span
                           nz-icon
@@ -218,15 +220,53 @@
                         </button>
                       </nz-form-control>
                     </nz-form-item>
-                    <nz-form-item>
+                    <!-- <nz-form-item>
                       <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
                         <button nz-button nzType="primary">Submit</button>
                       </nz-form-control>
-                    </nz-form-item>
+                    </nz-form-item> -->
 
                    </div>
                     <!-- for adding ingredients  -->
 
+                    <!-- for calculating ingredients  -->
+                    <div class="mt-20">
+                      <h2 class="w-60 mb-10 text-2xl font-bold">Food Cost Calculator</h2>
+                      <div class="flex">
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your username!">
+                              <nz-form-label for="name" >Cost Per Unit</nz-form-label>    
+                            <nz-input-group nzPrefixIcon="" class="w-64 py-2">
+                              <input formControlName="userName" nz-input placeholder="Cost Per Unit" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                          <nz-form-control nzErrorTip="Please input your Password!">
+                            <nz-form-label for="name" >Cost per Calories</nz-form-label> 
+                            <nz-input-group nzPrefixIcon="" class="w-62 py-2">
+                              <input formControlName="password" nz-input  placeholder="Cost per Calories" class="p-2 text-xl" />
+                            </nz-input-group>
+                          </nz-form-control>
+                        </nz-form-item>
+                        <nz-form-item>
+                            <nz-form-control nzErrorTip="Please input your Password!">
+                              <nz-form-label for="name" >Total Cost</nz-form-label> 
+                              <nz-input-group nzPrefixIcon="" class="w-60 py-2">
+                                <input formControlName="password" nz-input  placeholder="Total Cost" class="p-2 text-xl" />
+                              </nz-input-group>
+                            </nz-form-control>
+                          </nz-form-item>
+                    </div>
+                    </div>
+
+                    <!-- for calculating ingredients  -->
+
+                    <nz-form-item class="absolute  bottom-28 right-28">
+                        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+                          <button nz-button nzType="primary" class="w-52 h-12 rounded-md text-2xl text-center">Add</button>
+                        </nz-form-control>
+                      </nz-form-item>
                   </div>
                   
                   </form>

@@ -16,6 +16,10 @@ export class HomepageComponent {
     this.router.navigate(['/additem'])
   }
 
+  onAddCategory(){
+    this.router.navigate(['/addcategory'])
+  }
+
  
 
 }

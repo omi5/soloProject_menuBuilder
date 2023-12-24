@@ -13,4 +13,8 @@ export class LunchComponent {
   onAddItem(){
     this.router.navigate(['/additem'])
   }
+  onAddCategory(){
+    this.router.navigate(['/addcategory'])
+  }
+
 }

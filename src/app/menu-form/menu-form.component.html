@@ -1,0 +1,61 @@
+ 
+ 
+ <div class="min-h-screen bg-gray-100 py-6 flex justify-center items-center sm:py-12  ">
+    <!-- <div class="w-full py-3 sm:max-w-xl sm:mx-auto "> -->
+        <!-- <div
+            class="absolute inset-0 bg-gradient-to-r from-blue-300 to-green-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+        </div> -->
+        <div class="relative  h-4/6 w-5/12 px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 ">  
+            <div class="">
+                <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                    <!-- //Upload a image -->
+
+                    <nz-upload
+                      class="mx-auto"
+                      nzType="drag"
+                      [nzMultiple]="true"
+                      [nzLimit]="2"
+                      [nzSize]="200"
+                      [nzFileType]="'image/png,image/jpeg,image/gif,image/bmp'"
+                      nzAction="https://jsonplaceholder.typicode.com/posts/"
+                      (nzChange)="handleChange($event)">
+                      <p class="ant-upload-drag-icon">
+                        Upload Banner Image
+                      </p>
+                      <p class="ant-upload-text w-96">Click or drag file to this area to upload</p>
+                    </nz-upload>
+
+
+                    <!-- //Upload a image -->
+                    <div class=" relative w-9/12 flex">
+                    <nz-form-item class="mt-4">
+                        <nz-form-control nzErrorTip="Please input your username!">
+                          <nz-form-label for="name" nzRequired>Category Name</nz-form-label>    
+                        <nz-input-group nzPrefixIcon="" class="w-96 py-2">
+                          <input formControlName="userName" nz-input placeholder="category name" class="p-2 text-xl" />
+                        </nz-input-group>
+                      </nz-form-control>
+                    </nz-form-item>
+                   
+                        <nz-form-item  class="w-9/12 mt-4">
+                            <nz-form-control  nzHasFeedback nzErrorTip="Please write something here!">
+                                <nz-form-label  nzRequired>Description</nz-form-label>
+                              <nz-textarea-count [nzMaxCharacterCount]="2000">
+                                <textarea formControlName="comment" nz-input rows="2" placeholder="write any thing" class="w-full text-xl"></textarea>
+                              </nz-textarea-count>
+                            </nz-form-control>
+                          </nz-form-item>
+                    </div>
+                    <nz-form-item class="absolute  bottom-5 right-16">
+                        <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+                          <button nz-button nzType="primary" class="w-52 h-12 rounded-md text-2xl text-center">Add</button>
+                        </nz-form-control>
+                      </nz-form-item>
+                   
+                  </form>
+             
+          </div>      
+        <!-- </div>  -->
+    </div>
+</div> 
+

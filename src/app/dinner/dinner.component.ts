@@ -13,4 +13,7 @@ export class DinnerComponent {
   onAddItem(){
     this.router.navigate(['/additem'])
   }
+  onAddCategory(){
+    this.router.navigate(['/addcategory'])
+  }
 }

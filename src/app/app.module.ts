@@ -37,6 +37,7 @@ import { DinnerComponent } from './dinner/dinner.component';
 import { AddItemFormComponent } from './add-item-form/add-item-form.component';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { MenuFormComponent } from './menu-form/menu-form.component';
 
 
 
@@ -55,7 +56,8 @@ registerLocaleData(en);
     LunchComponent,
     DinnerComponent,
     AddItemFormComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    MenuFormComponent
   ],
   imports: [
     BrowserModule,
